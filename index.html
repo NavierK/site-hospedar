@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="Pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="style.css">
+  <title>Dog Burguer</title>
+  <style>
+    /* Estilos CSS para a caixa de login */
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="navigation">
+      <a href="#" class="logo">D<span>o</span>G B<span>urgue</span>R</a>
+      <ul class="nav-menu">
+        <li class="nav-item"><a href="#">Home</a></li>
+        <li class="nav-item"><a href="#">Sobre</a></li>
+        <li class="nav-item"><a href="#">Menu</a></li>
+        <li><a href="#" id="contato-link">Contato</a></li>
+        <li class="nav-item dropdown">
+
+          <div class="dropdown-content">
+            <form>
+              <label for="username">Usuário:</label>
+              <input type="text" id="username" name="username" required><br><br>
+              <label for="password">Senha:</label>
+              <input type="password" id="password" name="password" required><br><br>
+              <input type="submit" value="Login">
+            </form>
+          </div>
+        </li>
+        <i class='bx bx-search'></i>
+      </ul>
+      <div class="menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <section class="home">
+      <div class="home-text">
+        <h4 class="text-h4">Bem Vindo ao Dog Burguer</h4>
+        <h1 class="text-h1">Nós Somos Especialistas em Fazer Vocês Felizes com Sabores Incriveis!</h1>
+        <p>Dog Burger Servindo com toda excelência
+          Através da Qualidade.</p>
+        <div class="button-container">
+          <a href="#" class="home-btn">Faça seu pedido</a>
+          <div class="dropdown">
+            <button class="bot" onclick="toggleDropdown()" class="dropbtn">Login</button>
+            <div id="myDropdown" class="dropdown-content">
+              <form>
+                <input type="text" placeholder="Nome de usuário" id="username">
+                <input type="password" placeholder="Senha" id="password">
+                <button type="button" onclick="login()">Entrar</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="home-img">
+        <img src="imagem.png" alt="hamburguer">
+      </div>
+    </section>
+  </main>
+
+  <script>
+
+    document.getElementById('contato-link').addEventListener('click', function (event) {
+      event.preventDefault(); // Impede o comportamento padrão do link
+
+      var mensagem = "Ligue no número: XXXXXXXXXX ou vá até a hamburgueria mais próxima";
+
+      // Cria o elemento do quadrado
+      var quadradoElement = document.createElement('div');
+      quadradoElement.id = 'quadrado';
+      quadradoElement.textContent = mensagem;
+
+      // Estiliza o quadrado
+      quadradoElement.style.width = '200px';
+      quadradoElement.style.height = '200px';
+      quadradoElement.style.backgroundColor = '#f9cf39';
+      quadradoElement.style.position = 'fixed';
+      quadradoElement.style.top = '50%';
+      quadradoElement.style.left = '50%';
+      quadradoElement.style.transform = 'translate(-50%, -50%)';
+      quadradoElement.style.display = 'flex';
+      quadradoElement.style.justifyContent = 'center';
+      quadradoElement.style.alignItems = 'center';
+      quadradoElement.style.color = 'white';
+      quadradoElement.style.fontSize = '20px';
+      quadradoElement.style.textAlign = 'center';
+
+      // Adiciona o quadrado ao corpo do documento
+      document.body.appendChild(quadradoElement);
+
+
+    });
+    
+    document.addEventListener('click', function(event) {
+        if (!quadradoElement.contains(event.target)) {
+          quadradoElement.remove();
+        }
+      });
+
+
+    const menu = document.querySelector('.menu');
+    const NavMenu = document.querySelector('.nav-menu');
+    const home = document.getElementById('home');
+    //1
+    menu.addEventListener('click', () => {
+      menu.classList.toggle('ativo');
+      NavMenu.classList.toggle('ativo');
+    })
+
+    //2
+    home.addEventListener('click', () => {
+      location.reload();
+    });
+
+    //3
+
+    function toggleDropdown() {
+      document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+    function login() {
+      var username = document.getElementById("username").value;
+      var password = document.getElementById("password").value;
+
+      // Verificar as credenciais do usuário (exemplo simplificado)
+      if (username === "admin" && password === "123456") {
+        alert("Login bem-sucedido!");
+        // Redirecionar o usuário para a página de login bem-sucedido
+      } else {
+        alert("Credenciais inválidas. Tente novamente.");
+      }
+    }
+
+//4
+
+  </script>
+
+</body>
+
+</html>
